@@ -7,7 +7,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.epitech.epicture.ui.login.LoginViewModel
-import com.epitech.epicture.ui.upload.UploadStatus
+//import com.epitech.epicture.ui.upload.UploadStatus
 import com.google.android.material.textfield.TextInputLayout
 
 /**
@@ -78,126 +78,126 @@ fun bindImageDownvote(imageView: ImageView, isDown: Boolean?) {
             imageView.setImageResource(R.drawable.ic_baseline_arrow_downward_24)
     }
 }
-
-/**
- * Checks if the button must be displayed or not depending on the upload status
- *
- * @param button The button
- * @param status The upload status
- */
-@BindingAdapter("chooseImageButtonStatus")
-fun bindChooseImageButton(
-    button: Button,
-    status: UploadStatus?
-) {
-    when (status) {
-        UploadStatus.CHOOSE_IMAGE -> {
-            button.visibility = View.VISIBLE
-        }
-        UploadStatus.INFORMATIONS -> {
-            button.visibility = View.GONE
-        }
-        UploadStatus.UPLOADING -> {
-            button.visibility = View.GONE
-        }
-    }
-}
-
-/**
- * Checks if the image view must be displayed or not depending on the upload status
- *
- * @param imageView The image view
- * @param status The upload status
- */
-@BindingAdapter("uploadStatus")
-fun bindUploadTextView(
-    imageView: ImageView,
-    status: UploadStatus?
-) {
-    when (status) {
-        UploadStatus.CHOOSE_IMAGE -> {
-            imageView.visibility = View.GONE
-        }
-        UploadStatus.INFORMATIONS -> {
-            imageView.visibility = View.VISIBLE
-        }
-        UploadStatus.UPLOADING -> {
-            imageView.visibility = View.GONE
-        }
-    }
-}
-
-/**
- * Checks if the TextInputLayout must be displayed or not depending on the upload status
- *
- * @param textInputLayout The TextInputLayout
- * @param status The upload status
- */
-@BindingAdapter("uploadStatus")
-fun bindUploadTextInputLayout(
-    textInputLayout: TextInputLayout,
-    status: UploadStatus?
-) {
-    when (status) {
-        UploadStatus.CHOOSE_IMAGE -> {
-            textInputLayout.visibility = View.GONE
-        }
-        UploadStatus.INFORMATIONS -> {
-            textInputLayout.visibility = View.VISIBLE
-        }
-        UploadStatus.UPLOADING -> {
-            textInputLayout.visibility = View.GONE
-        }
-    }
-}
-
-/**
- * Checks if the button must be displayed or not depending on the upload status
- *
- * @param button The text input layout
- * @param status The upload status
- */
-@BindingAdapter("uploadStatus")
-fun bindUploadButton(
-    button: Button,
-    status: UploadStatus?
-) {
-    when (status) {
-        UploadStatus.CHOOSE_IMAGE -> {
-            button.visibility = View.GONE
-        }
-        UploadStatus.INFORMATIONS -> {
-            button.visibility = View.VISIBLE
-        }
-        UploadStatus.UPLOADING -> {
-            button.visibility = View.GONE
-        }
-    }
-}
-
-/**
- * Checks if the upload animation must be displayed or not depending on the upload status
- *
- * @param relativeLayout The upload animation
- * @param status The upload status
- */
-@BindingAdapter("uploadStatus")
-fun bindUploadAnimation(
-    relativeLayout: RelativeLayout,
-    status: UploadStatus?
-) {
-    when (status) {
-        UploadStatus.CHOOSE_IMAGE -> {
-            relativeLayout.visibility = View.GONE
-        }
-        UploadStatus.INFORMATIONS -> {
-            relativeLayout.visibility = View.GONE
-        }
-        UploadStatus.UPLOADING -> {
-            relativeLayout.visibility = View.VISIBLE
-        }
-    }
-}
+//
+///**
+// * Checks if the button must be displayed or not depending on the upload status
+// *
+// * @param button The button
+// * @param status The upload status
+// */
+//@BindingAdapter("chooseImageButtonStatus")
+//fun bindChooseImageButton(
+//    button: Button,
+//    status: UploadStatus?
+//) {
+//    when (status) {
+//        UploadStatus.CHOOSE_IMAGE -> {
+//            button.visibility = View.VISIBLE
+//        }
+//        UploadStatus.INFORMATIONS -> {
+//            button.visibility = View.GONE
+//        }
+//        UploadStatus.UPLOADING -> {
+//            button.visibility = View.GONE
+//        }
+//    }
+//}
+//
+///**
+// * Checks if the image view must be displayed or not depending on the upload status
+// *
+// * @param imageView The image view
+// * @param status The upload status
+// */
+//@BindingAdapter("uploadStatus")
+//fun bindUploadTextView(
+//    imageView: ImageView,
+//    status: UploadStatus?
+//) {
+//    when (status) {
+//        UploadStatus.CHOOSE_IMAGE -> {
+//            imageView.visibility = View.GONE
+//        }
+//        UploadStatus.INFORMATIONS -> {
+//            imageView.visibility = View.VISIBLE
+//        }
+//        UploadStatus.UPLOADING -> {
+//            imageView.visibility = View.GONE
+//        }
+//    }
+//}
+//
+///**
+// * Checks if the TextInputLayout must be displayed or not depending on the upload status
+// *
+// * @param textInputLayout The TextInputLayout
+// * @param status The upload status
+// */
+//@BindingAdapter("uploadStatus")
+//fun bindUploadTextInputLayout(
+//    textInputLayout: TextInputLayout,
+//    status: UploadStatus?
+//) {
+//    when (status) {
+//        UploadStatus.CHOOSE_IMAGE -> {
+//            textInputLayout.visibility = View.GONE
+//        }
+//        UploadStatus.INFORMATIONS -> {
+//            textInputLayout.visibility = View.VISIBLE
+//        }
+//        UploadStatus.UPLOADING -> {
+//            textInputLayout.visibility = View.GONE
+//        }
+//    }
+//}
+//
+///**
+// * Checks if the button must be displayed or not depending on the upload status
+// *
+// * @param button The text input layout
+// * @param status The upload status
+// */
+//@BindingAdapter("uploadStatus")
+//fun bindUploadButton(
+//    button: Button,
+//    status: UploadStatus?
+//) {
+//    when (status) {
+//        UploadStatus.CHOOSE_IMAGE -> {
+//            button.visibility = View.GONE
+//        }
+//        UploadStatus.INFORMATIONS -> {
+//            button.visibility = View.VISIBLE
+//        }
+//        UploadStatus.UPLOADING -> {
+//            button.visibility = View.GONE
+//        }
+//    }
+//}
+//
+///**
+// * Checks if the upload animation must be displayed or not depending on the upload status
+// *
+// * @param relativeLayout The upload animation
+// * @param status The upload status
+// */
+//@BindingAdapter("uploadStatus")
+//fun bindUploadAnimation(
+//    relativeLayout: RelativeLayout,
+//    status: UploadStatus?
+//) {
+//    when (status) {
+//        UploadStatus.CHOOSE_IMAGE -> {
+//            relativeLayout.visibility = View.GONE
+//        }
+//        UploadStatus.INFORMATIONS -> {
+//            relativeLayout.visibility = View.GONE
+//        }
+//        UploadStatus.UPLOADING -> {
+//            relativeLayout.visibility = View.VISIBLE
+//        }
+//    }
+//}
 
 /**
  * Checks if the login animation must be displayed or not depending on the login status

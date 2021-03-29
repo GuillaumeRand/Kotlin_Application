@@ -66,8 +66,6 @@ class SearchFragment : Fragment() {
             }
         })
 
-        initSwitch()
-        initSpinner()
         initSearch()
         return binding.root
     }
@@ -98,7 +96,6 @@ class SearchFragment : Fragment() {
     private fun initSearch() {
         binding.baseQueryInput.setOnEditorActionListener(onEditorActionListener)
         binding.baseQueryInput.setOnKeyListener(onKeyListener)
-        binding.searchButton.setOnClickListener { updateImageListFromQuery() }
         lifecycleScope.launch {
             adapter.loadStateFlow
                 .distinctUntilChangedBy { it.refresh }
@@ -112,16 +109,9 @@ class SearchFragment : Fragment() {
      */
     private fun updateImageListFromQuery() {
         val query = searchBaseObservable.getQuery().trim()
-        val qAny = searchBaseObservable.getQAny().trim()
-        val qExactly = searchBaseObservable.getQExactly().trim()
-        val fileType = searchViewModel.fileType.value?.trim() ?: "all"
-        val sort = searchViewModel.sort.value?.trim() ?: "time"
 
         view?.hideKeyboard()
-        if (searchViewModel.advancedSearch.value == true && (qAny.isNotEmpty() || qExactly.isNotEmpty() || fileType != "all" || sort != "time")) {
-            binding.baseQueryLayout.error = null
-            advancedSearch(query, qAny, qExactly, fileType, sort)
-        } else if (query.isNotEmpty()) {
+        if (query.isNotEmpty()) {
             binding.baseQueryLayout.error = null
             simpleSearch(query)
         } else {
@@ -149,90 +139,4 @@ class SearchFragment : Fragment() {
         }
     }
 
-    /**
-     * Makes an advanced search
-     */
-    private fun advancedSearch(
-        qAll: String,
-        qAny: String,
-        qExactly: String,
-        fileType: String,
-        sort: String
-    ) {
-        searchJob?.cancel()
-        searchJob = lifecycleScope.launch {
-            searchViewModel.advancedSearch(
-                qAll,
-                qAny,
-                qExactly,
-                fileType,
-                sort
-            ).collectLatest {
-                adapter.submitData(it)
-            }
-        }
-    }
-
-    /**
-     * Initializes search spinners
-     */
-    private fun initSpinner() {
-        ArrayAdapter.createFromResource(
-            this.requireContext(),
-            R.array.type_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.fileTypeSpinner.adapter = adapter
-        }
-        binding.fileTypeSpinner.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    val stringArray = resources.getStringArray(R.array.type_array)
-                    searchViewModel.setFileType(stringArray[position])
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    searchViewModel.setFileType("all")
-                }
-            }
-        ArrayAdapter.createFromResource(
-            this.requireContext(),
-            R.array.search_sort_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.sortBySpinner.adapter = adapter
-        }
-        binding.sortBySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val stringArray = resources.getStringArray(R.array.search_sort_array)
-                searchViewModel.setSort(stringArray[position])
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                searchViewModel.setSort("")
-            }
-        }
-    }
-
-    /**
-     * Initializes search switch
-     */
-    private fun initSwitch() {
-        binding.advancedSearchSwitch.setOnCheckedChangeListener { _, isChecked ->
-            searchViewModel.setAdvancedSearch(isChecked)
-        }
-        binding.advancedSearchSwitch.isChecked = false
-    }
 }

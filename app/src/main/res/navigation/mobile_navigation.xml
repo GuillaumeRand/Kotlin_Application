@@ -18,18 +18,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_favorites"
-        android:name="com.epitech.epicture.ui.favorites.FavoritesFragment"
-        android:label="@string/title_favorites"
-        tools:layout="@layout/fragment_favorites">
-        <action
-            android:id="@+id/action_navigation_favorites_to_imageDetailsFragment"
-            app:destination="@id/imageDetailsFragment"
-            app:popUpTo="@id/navigation_favorites"
-            app:popUpToInclusive="false" />
-    </fragment>
-
-    <fragment
         android:id="@+id/navigation_search"
         android:name="com.epitech.epicture.ui.search.SearchFragment"
         android:label="@string/title_search"
@@ -40,11 +28,6 @@
             app:popUpTo="@id/navigation_search"
             app:popUpToInclusive="false" />
     </fragment>
-    <fragment
-        android:id="@+id/navigation_upload"
-        android:name="com.epitech.epicture.ui.upload.UploadFragment"
-        android:label="@string/title_upload"
-        tools:layout="@layout/fragment_upload" />
     <fragment
         android:id="@+id/navigation_user"
         android:name="com.epitech.epicture.ui.user.UserFragment"

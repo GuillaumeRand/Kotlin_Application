@@ -259,35 +259,6 @@ object ImgurService {
     }
 
     /**
-     * Searches images / albums depending on more fields than a simple search
-     * @param page The page number
-     * @param qAll Search for all of these words (and)
-     * @param qAny Search for any of these words (or)
-     * @param qExactly Search for exactly this word or phrase
-     * @param qType Show results for any file type, jpg | png | gif
-     */
-    suspend fun advancedSearch(
-        page: Int,
-        qAll: String,
-        qAny: String,
-        qExactly: String,
-        qType: String,
-        sort: String,
-        window: String = "all"
-    ): ListDataResponse<GalleryImage> {
-        return this.retrofitImgurService.advancedSearch(
-            "Client-ID $CLIENT_ID",
-            sort,
-            window,
-            page,
-            qAll,
-            qAny,
-            qExactly,
-            qType
-        )
-    }
-
-    /**
      * Gets the avatar of the given user
      * @param accessToken The access token of the user
      * @param username The username of the user

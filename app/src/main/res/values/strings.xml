@@ -1,59 +1,45 @@
 <resources>
-    <string name="app_name">Koteline</string>
-    <string name="title_home">Acceuil</string>
+    <string name="app_name">Epicture</string>
+    <string name="title_home">Accueil</string>
     <string name="title_favorites">Favoris</string>
-    <string name="title_search">Rechercher</string>
-    <string name="title_upload">Télécharger</string>
+    <string name="title_search">Recherche</string>
+    <string name="title_upload">Envoi</string>
     <string name="title_user">Utilisateur</string>
-    <string name="login">S\'identifier</string>
+    <string name="login">Connexion</string>
     <string name="sign_out">Déconnexion</string>
-    <string name="title_activity_main2">ActivitéPrincipal</string>
-    <string name="navigation_drawer_open">Ouvrir l\'onglet de navigation</string>
-    <string name="navigation_drawer_close">Fermer l\'onglet de navigation</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Réglages</string>
 
-    <string name="menu_home">Acceuil</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Diaporama</string>
     <string name="imgur_image">Imgur image</string>
     <string name="choose_image">Choisir une image</string>
-    <string name="chosen_image">Image choisis</string>
+    <string name="chosen_image">Image Choisi</string>
     <string name="description">Description</string>
-    <string name="loading">chargement</string>
     <string name="title">Titre</string>
-    <string name="loading_image">chargement de l\'image</string>
-    <string name="type_something">Tapez quelque chose</string>
     <string name="avatar">avatar</string>
-    <string name="upload_image">Upload image</string>
     <string name="title_details">Details</string>
     <string name="comment_count">Commentaires: %d</string>
-    <string name="base_query_input">Image, album…</string>
-    <string name="file_type">Type de fichier:</string>
-    <string name="exactly">Exactement</string>
-    <string name="any_of">N\'importe quel</string>
-    <string name="advanced_search">Recherche Avancée</string>
-    <string name="sort_by">Trier par:</string>
+    <string name="base_query_input">Rechercher des images, album…</string>
+    <string name="file_type">File type:</string>
+    <string name="exactly">Exactly</string>
+    <string name="any_of">Any of</string>
+    <string name="advanced_search">Advanced search</string>
+    <string name="sort_by">Sort by:</string>
     <string-array name="type_array">
-        <item>tout</item>
+        <item>all</item>
         <item>jpg</item>
         <item>png</item>
         <item>gif</item>
     </string-array>
     <string-array name="search_sort_array">
-        <item>temps</item>
+        <item>time</item>
         <item>viral</item>
         <item>top</item>
     </string-array>
     <string-array name="fav_sort_array">
-        <item>le plus récent</item>
-        <item>le plus ancien</item>
+        <item>newest</item>
+        <item>oldest</item>
     </string-array>
     <string-array name="comment_sort_array">
-        <item>meilleur</item>
+        <item>best</item>
         <item>top</item>
-        <item>Nouveau</item>
+        <item>new</item>
     </string-array>
-    </resources>
+</resources>

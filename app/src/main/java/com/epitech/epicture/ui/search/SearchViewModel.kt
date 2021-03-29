@@ -20,9 +20,6 @@ class SearchViewModel : ViewModel() {
     private val _sort = MutableLiveData<String>()
     val sort: LiveData<String> = _sort
 
-    private val _advancedSearch = MutableLiveData(false)
-    val advancedSearch: LiveData<Boolean> = _advancedSearch
-
     private val _selectedImage = MutableLiveData<Image?>()
     val selectedImage: LiveData<Image?>
         get() = _selectedImage
@@ -37,20 +34,6 @@ class SearchViewModel : ViewModel() {
 
     fun simpleSearch(query: String): Flow<PagingData<Image>> {
         return pager.simpleSearchStream(query)
-    }
-
-    fun advancedSearch(
-            qAll: String,
-            qAny: String,
-            qExactly: String,
-            qType: String,
-            sort: String
-    ): Flow<PagingData<Image>> {
-        return pager.advancedSearchStream(qAll, qAny, qExactly, qType, sort)
-    }
-
-    fun setAdvancedSearch(value: Boolean) {
-        this._advancedSearch.value = value
     }
 
     fun selectImage(image: Image) {

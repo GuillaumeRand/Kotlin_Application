@@ -56,40 +56,6 @@ class ImgurPager {
         ).flow
     }
 
-    /**
-     * Gets PagingData advanced search flow
-     *
-     * @param qAll Search for all of these words
-     * @param qAny Search for any of these words
-     * @param qExactly Search for exactly this word or phrase
-     * @param qType Show results for any file type, jpg | png | gif
-     * @param sort The way data must be sorted: time | viral | top
-     * @return
-     */
-    fun advancedSearchStream(
-        qAll: String,
-        qAny: String,
-        qExactly: String,
-        qType: String,
-        sort: String
-    ): Flow<PagingData<Image>> {
-        return Pager(
-            config = PagingConfig(
-                pageSize = NETWORK_PAGE_SIZE,
-                enablePlaceholders = false
-            ),
-            pagingSourceFactory = {
-                ImgurGalleryAdvancedSearchPagingSource(
-                    qAll,
-                    qAny,
-                    qExactly,
-                    qType,
-                    sort
-                )
-            }
-        ).flow
-    }
-
     companion object {
         private const val NETWORK_PAGE_SIZE = 50
     }
